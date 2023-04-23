@@ -21,8 +21,19 @@ public class StringAddCalculator {
 			delimiter = matcher.group(1);
 			input = matcher.group(2);
 		}
-		return 0;
+
+		List<Token> tokens = Arrays.stream(input.split(delimiter))
+			.map(Token::new)
+			.collect(Collectors.toList());
+		return sumTokens(tokens);
 	}
 
+	public static int sumTokens(List<Token> tokens) {
+		int result = 0;
+		for (Token token : tokens) {
+			result += token.getToken();
+		}
+		return result;
+	}
 
 }
