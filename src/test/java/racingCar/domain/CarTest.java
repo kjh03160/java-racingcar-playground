@@ -15,4 +15,13 @@ public class CarTest {
 		assertThatThrownBy(()-> new Car("123456"))
 			.isInstanceOf(IllegalArgumentException.class);
 	}
+
+	@Test
+	void 값이_4이상일_경우_자동차는_움직인다() {
+		Car car = new Car("name");
+		car.move(3);
+		assertThat(car.getCurrentPosition()).isEqualTo(0);
+		car.move(4);
+		assertThat(car.getCurrentPosition()).isEqualTo(4);
+	}
 }
