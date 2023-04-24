@@ -1,4 +1,4 @@
-package racingCar;
+package racingCar.utils;
 
 public class NameValidator {
 	private static final int MAX_NAME_LENGTH = 5;
