@@ -22,6 +22,18 @@ public class CarTest {
 		car.move(3);
 		assertThat(car.getCurrentPosition()).isEqualTo(0);
 		car.move(4);
-		assertThat(car.getCurrentPosition()).isEqualTo(4);
+		assertThat(car.getCurrentPosition()).isEqualTo(1);
+	}
+
+	@Test
+	void 현재_위치를_이름과_함께_출력한다() {
+		Car car = new Car("name");
+		assertThat(car.toString()).isEqualTo("name : ");
+		car.move(4);
+		assertThat(car.toString()).isEqualTo("name : -");
+		car.move(3);
+		assertThat(car.toString()).isEqualTo("name : -");
+		car.move(4);
+		assertThat(car.toString()).isEqualTo("name : --");
 	}
 }

@@ -15,11 +15,20 @@ public class Car {
 
 	public void move(int amount) {
 		if (amount >= MINIMUM_TO_MOVE) {
-			this.position += amount;
+			this.position += 1;
 		}
 	}
 
 	public int getCurrentPosition() {
 		return this.position;
+	}
+
+	@Override
+	public String toString() {
+		StringBuilder positionString = new StringBuilder();
+		for (int i = 0; i < this.position; i++) {
+			positionString.append("-");
+		}
+		return this.name + " : " + positionString;
 	}
 }
