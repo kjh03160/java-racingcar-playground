@@ -23,5 +23,7 @@ public class RacingGame {
 			cars.forEach(car -> car.move(RandomNumberGenerator.generate()));
 			ResultView.printCurrentCarsPosition(cars);
 		}
+
+		ResultView.printWinner(cars);
 	}
 }

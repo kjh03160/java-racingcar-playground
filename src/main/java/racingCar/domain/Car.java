@@ -2,7 +2,8 @@ package racingCar.domain;
 
 import racingCar.utils.NameValidator;
 
-public class Car {
+public class Car implements Comparable<Car>{
+
 	private String name;
 	private int position;
 	private static final int MINIMUM_TO_MOVE = 4;
@@ -23,6 +24,10 @@ public class Car {
 		return this.position;
 	}
 
+	public String getName() {
+		return name;
+	}
+
 	@Override
 	public String toString() {
 		StringBuilder positionString = new StringBuilder();
@@ -30,5 +35,10 @@ public class Car {
 			positionString.append("-");
 		}
 		return this.name + " : " + positionString;
+	}
+
+	@Override
+	public int compareTo(Car o) {
+		return o.position - this.position;
 	}
 }
