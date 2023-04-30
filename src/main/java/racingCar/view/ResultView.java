@@ -21,10 +21,7 @@ public class ResultView {
 	}
 
 	private static List<String> extractWinnersName(List<Car> cars) {
-		Collections.sort(cars);
-		int winnersPosition = cars.get(0).getCurrentPosition();
 		return cars.stream()
-			.filter(car -> car.getCurrentPosition() == winnersPosition)
 			.map(Car::getName)
 			.collect(Collectors.toList());
 	}

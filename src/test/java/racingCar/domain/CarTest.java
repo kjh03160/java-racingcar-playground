@@ -19,9 +19,9 @@ public class CarTest {
 	@Test
 	void 값이_4이상일_경우_자동차는_움직인다() {
 		Car car = new Car("name");
-		car.move(3);
+		car.move(() -> false);
 		assertThat(car.getCurrentPosition()).isEqualTo(0);
-		car.move(4);
+		car.move(() -> true);
 		assertThat(car.getCurrentPosition()).isEqualTo(1);
 	}
 
@@ -29,11 +29,11 @@ public class CarTest {
 	void 현재_위치를_이름과_함께_출력한다() {
 		Car car = new Car("name");
 		assertThat(car.toString()).isEqualTo("name : ");
-		car.move(4);
+		car.move(() -> true);
 		assertThat(car.toString()).isEqualTo("name : -");
-		car.move(3);
+		car.move(() -> false);
 		assertThat(car.toString()).isEqualTo("name : -");
-		car.move(4);
+		car.move(() -> true);
 		assertThat(car.toString()).isEqualTo("name : --");
 	}
 }
