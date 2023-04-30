@@ -4,49 +4,42 @@ import java.util.Objects;
 
 import racingCar.utils.NameValidator;
 
-public class Car implements Comparable<Car>{
+public class Car {
 
-	private String name;
-	private int position;
+	private Name name;
+	private Position position;
 
 	public Car(String name) {
-		NameValidator.validateName(name);
-		this.name = name;
-		this.position = 0;
+		this.name = new Name(name);
+		this.position = new Position();
 	}
 
 	Car(String name, int position) {
-		NameValidator.validateName(name);
-		this.name = name;
-		this.position = position;
+		this.name = new Name(name);
+		this.position = new Position(position);
 	}
 
 	public void move(MovingStrategy strategy) {
 		if (strategy.movable()) {
-			this.position += 1;
+			this.position.move();
 		}
 	}
 
-	public int getCurrentPosition() {
+	public Position getPosition() {
 		return this.position;
 	}
 
 	public String getName() {
-		return name;
+		return name.getValue();
 	}
 
 	@Override
 	public String toString() {
 		StringBuilder positionString = new StringBuilder();
-		for (int i = 0; i < this.position; i++) {
+		for (int i = 0; i < this.position.getPosition(); i++) {
 			positionString.append("-");
 		}
 		return this.name + " : " + positionString;
-	}
-
-	@Override
-	public int compareTo(Car o) {
-		return o.position - this.position;
 	}
 
 	@Override

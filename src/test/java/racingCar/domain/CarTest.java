@@ -20,9 +20,9 @@ public class CarTest {
 	void 값이_4이상일_경우_자동차는_움직인다() {
 		Car car = new Car("name");
 		car.move(() -> false);
-		assertThat(car.getCurrentPosition()).isEqualTo(0);
+		assertThat(car.getPosition()).isEqualTo(new Position(0));
 		car.move(() -> true);
-		assertThat(car.getCurrentPosition()).isEqualTo(1);
+		assertThat(car.getPosition()).isEqualTo(new Position(1));
 	}
 
 	@Test
